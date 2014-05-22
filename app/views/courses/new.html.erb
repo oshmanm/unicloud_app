@@ -1,21 +1,11 @@
+<h3>Hi, <%= student.name %><h3>
 <h1>Register for a new course</h1>
 
-<form action="/courses" method="post">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <label>
-    Title
-    <input type="text" name="title" />
-  </label>
+<%= form_for @course do |f| %>
+    Title: <%= f.text_field :title %>
+    Schedule: <%= f.date_field :schedule %>
+    Course Level: <%= f.text_field :course_level %>
+  <%= f.submit %>
+<% end %>
 
-  <label>
-    Schedule
-    <input type="date" name="schedule" />
-  </label>
-
-  <label>
-    Course Level
-    <input type="text" name="course_level" />
-  </label>
-
-  <button>Save!</button>
-</form>
+<a href="/courses">View courses</a>

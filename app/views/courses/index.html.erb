@@ -1,5 +1,12 @@
+ <h2>Courses</h2>
+
+<p>You are currently registered for <%= @courses.size %> courses:</p>
+
+<ul>
+
  <% @courses.each do |course| %>
-    <section>
-      <a href="<%="/courses/#{course.id}"%>"></a>
-    </section>
-  <% end %>
+ 	<li>
+ 		<%= course.title %>
+ 	</li>
+ 	<% end %>
+</ul>

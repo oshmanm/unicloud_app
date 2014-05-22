@@ -8,15 +8,13 @@ class CoursesController < ApplicationController
 	end
 
 	def create    
-    course = Course.new
-    
-    course.title = params[:title]
-    course.schedule = params[:schedule]
-    course.course_level = params[:course_level]
+    @course = Course.new(params.require(:course).permit(:title))
 
-    course.save
-
-    redirect_to "/courses"
+   if @course.save
+      redirect_to :index
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,4 +23,3 @@ class CoursesController < ApplicationController
   end
 
 end
-
