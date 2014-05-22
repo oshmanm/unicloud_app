@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         resources :classrooms
       end
       resources :catalogs do
-        resources :courses
+        resources :courses, only: [:index, :new, :create, :show]
       end
     end
 
